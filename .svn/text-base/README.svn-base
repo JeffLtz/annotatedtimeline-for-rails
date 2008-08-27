@@ -1,0 +1,37 @@
+AnnotatedTimeline
+=================
+
+In the view:
+	<%= annotated_timeline(daily_counts_by_type, 'div-name', options) %>
+
+daily_counts_by_type should look like:
+	{Datetime => { :foo=>123, :bar=>100}, Datetime => { :foo=736, :bar=>4} }
+This will graph foo versus bar over time.
+
+Options
+=======
+
+:colors (array of strings) The colors to use to override the default google color scheme for the chart lines and labels. Each element is a string in a valid HTML color format. For example 'red' or '#00cc00'. 
+
+:displayExactValues (boolean) - If set to false (the default), value displayed on top may be in a shorter approximated form (56.12k instead of 56123.45). If set to true, values will appear unchanged. 
+
+:min (number) - Use to explicitly set the minimal value to show in the Y axis.
+
+:scaleType (string) - 'fixed'(default) or 'maximize'. If 'maximize' is used, the range of the values axis will span between the minimal and maximal values of the DataTable. If 'fixed' is used, the range of the values axis will span between zero and the maximal values of the DataTable. 
+
+:wmode (string) - 'opaque'(default), 'window' or 'transparent'. the Window Mode (wmode) parameter for the Flash chart. 
+
+:zoomStartTime (datetime) -  	If specified, sets the start time of the selected zoom range. 
+
+:zoomEndTime (datetime) -  If specified, sets the end time of the selected zoom range. 
+
+
+
+
+
+Annotations
+===========
+:allowHtml
+:annotationsWidth
+:displayAnnotations
+:displayAnnotationsFilter

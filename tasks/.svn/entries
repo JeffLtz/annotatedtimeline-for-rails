@@ -1,0 +1,28 @@
+8
+
+dir
+4971
+svn+ssh://svn.mcommons.com/repos/mcommons/app/trunk/vendor/plugins/annotated_timeline/tasks
+svn+ssh://svn.mcommons.com/repos/mcommons
+
+
+
+2008-08-26T18:20:09.692654Z
+4971
+jeff
+
+
+svn:special svn:externals svn:needs-lock
+
+annotated_timeline_tasks.rake
+file
+
+
+
+
+2008-08-26T14:19:18.000000Z
+3d6c6f1dcc62e84d7ede67e70f654888
+2008-08-26T18:20:09.692654Z
+4971
+jeff
+

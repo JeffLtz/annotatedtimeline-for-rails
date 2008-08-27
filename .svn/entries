@@ -1,0 +1,85 @@
+8
+
+dir
+4971
+svn+ssh://svn.mcommons.com/repos/mcommons/app/trunk/vendor/plugins/annotated_timeline
+svn+ssh://svn.mcommons.com/repos/mcommons
+
+
+
+2008-08-26T18:20:09.692654Z
+4971
+jeff
+
+
+svn:special svn:externals svn:needs-lock
+
+test
+dir
+
+Rakefile
+file
+
+
+
+
+2008-08-26T14:19:18.000000Z
+fc5bebcc277ac849644ba0677013f130
+2008-08-26T18:20:09.692654Z
+4971
+jeff
+
+init.rb
+file
+
+
+
+
+2008-08-26T18:07:18.000000Z
+ae8ee37bea2e1dad7061afbc480d9cea
+2008-08-26T18:20:09.692654Z
+4971
+jeff
+
+tasks
+dir
+
+lib
+dir
+
+install.rb
+file
+
+
+
+
+2008-08-26T14:19:18.000000Z
+cbe738c10eba4ae2da8c6859c9723e44
+2008-08-26T18:20:09.692654Z
+4971
+jeff
+
+uninstall.rb
+file
+
+
+
+
+2008-08-26T14:19:18.000000Z
+2a5fc883fe7f8dfe22ced24643d59ad4
+2008-08-26T18:20:09.692654Z
+4971
+jeff
+
+README
+file
+
+
+
+
+2008-08-26T16:55:27.000000Z
+362103d25491415ea399c1968923c8e0
+2008-08-26T18:20:09.692654Z
+4971
+jeff
+
