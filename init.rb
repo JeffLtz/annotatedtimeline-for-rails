@@ -1,2 +1,2 @@
-require 'vendor/plugins/annotated_timeline/lib/annotated_timeline.rb'
+require File.join(File.dirname(__FILE__), 'lib/annotated_timeline.rb')
 ActionView::Base.send(:include, AnnotatedTimeline)
