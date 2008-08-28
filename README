@@ -10,6 +10,8 @@ This will graph foo versus bar over time.
 
 ***Note that at the moment, each datetime must have a value for every category for the graph to display properly, and annotations are not supported.
 
+Google Visualization API Doc: http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html
+
 Options
 =======
 
