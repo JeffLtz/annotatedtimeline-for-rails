@@ -5,8 +5,12 @@ In the view:
 	<%= annotated_timeline(daily_counts_by_type, 'div-name', options) %>
 
 daily_counts_by_type should look like:
-	{Datetime => { :foo=>123, :bar=>100}, Datetime => { :foo=736, :bar=>4} }
-This will graph foo versus bar over time.
+	{Datetime => { :foo=>123, :bar=>100}, Datetime => { :foo=>736, :bar=>423}, Datetime => { :foo=>412, :bar=>678 } }
+This will graph foo versus bar over time. 
+
+***Note that at the moment, each datetime must have a value for every category for the graph to display properly, and annotations are not supported.
+
+Google Visualization API Doc: http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html
 
 Options
 =======
@@ -29,7 +33,7 @@ Options
 
 
 
-Annotations
+Annotations *not supported at the moment*
 ===========
 :allowHtml
 :annotationsWidth

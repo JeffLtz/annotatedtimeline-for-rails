@@ -7,7 +7,6 @@ module AnnotatedTimeline
       html += "google.setOnLoadCallback(drawChart);"    
       html += "function drawChart(){"  
     	html += "var data = new google.visualization.DataTable(); \n"
-  		html += "data.addColumn('date', 'Date'); \n"
   		html += google_graph_data(daily_counts_by_type)
   		html += "var chart = new google.visualization.AnnotatedTimeLine($(\'#{element}\')); \n"
   		html += "chart.draw(data"   
@@ -33,22 +32,24 @@ module AnnotatedTimeline
 
   def google_graph_data(daily_counts_by_type)
     length = daily_counts_by_type.values.size
-  
-    html=setup_columns daily_counts_by_type
+    column_index = {}
+    num = 0
+    html = ""
+    
+    #set up columns and assign them each an index
+    html += "data.addColumn('date', 'Date'); \n"  
+    daily_counts_by_type.values.inject(&:merge).stringify_keys.keys.sort.each do |type,count|
+  		html+="data.addColumn('number', '#{type.to_s.titleize}');\n"
+  		column_index[num+=1] = type.to_sym
+  	end    
+    
     html+="data.addRows(#{length});\n"
-    html+=add_data_points(daily_counts_by_type, length)
+    
+    html+=add_data_points(daily_counts_by_type, column_index)
     html	
   end
 
-  def setup_columns(daily_counts_by_type)
-    html = ""
-    daily_counts_by_type.values.first.stringify_keys.sort.each do |type,count|
-  		html+="data.addColumn('number', '#{type.to_s.titleize}');\n"
-  	end
-  	html
-  end
-
-  def add_data_points(daily_counts_by_type, length)
+  def add_data_points(daily_counts_by_type, column_index)
     html = ""
     #first sort everything by date
     daily_counts_by_type.sort.each_with_index do |obj, index|
@@ -56,10 +57,11 @@ module AnnotatedTimeline
   		date_params = "#{date.year}, #{date.month-1}, #{date.day}"
   		html+="data.setValue(#{index}, 0, new Date(#{date_params}));\n"
     
-      #now sort the types alphabetically
-  		type_and_count.stringify_keys.sort.each_with_index do |count, index2| 
-  			html+="data.setValue(#{index}, #{index2+1}, #{count[1]});\n"
-  		end
+      #now go through column types in the order saved in column_index
+      column_index.each do |col_num, type|
+        type_and_count[type] && html+="data.setValue(#{index}, #{col_num}, #{type_and_count[type]});\n"
+      end
+      
     end
   	html
   end

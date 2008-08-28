@@ -35,7 +35,7 @@ module AnnotatedTimeline
     length = daily_counts_by_type.values.size
   
     html=setup_columns daily_counts_by_type
-    html+="data.addRows(#{length});"
+    html+="data.addRows(#{length});\n"
     html+=add_data_points(daily_counts_by_type, length)
     html	
   end
@@ -43,7 +43,7 @@ module AnnotatedTimeline
   def setup_columns(daily_counts_by_type)
     html = ""
     daily_counts_by_type.values.first.stringify_keys.sort.each do |type,count|
-  		html+="data.addColumn('number', '#{type.to_s.titleize}');"
+  		html+="data.addColumn('number', '#{type.to_s.titleize}');\n"
   	end
   	html
   end
@@ -54,11 +54,11 @@ module AnnotatedTimeline
     daily_counts_by_type.sort.each_with_index do |obj, index|
       date, type_and_count = obj
   		date_params = "#{date.year}, #{date.month-1}, #{date.day}"
-  		html+="data.setValue(#{index}, 0, new Date(#{date_params}));"
+  		html+="data.setValue(#{index}, 0, new Date(#{date_params}));\n"
     
       #now sort the types alphabetically
   		type_and_count.stringify_keys.sort.each_with_index do |count, index2| 
-  			html+="data.setValue(#{index}, #{index2+1}, #{count[1]});"
+  			html+="data.setValue(#{index}, #{index2+1}, #{count[1]});\n"
   		end
     end
   	html
