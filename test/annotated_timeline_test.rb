@@ -22,9 +22,13 @@ class AnnotatedTimelineTest < Test::Unit::TestCase
     assert_match(/data\.addColumn\('date', 'Date'\);/, output, "Should Make Date Column")
     assert_match(/data\.addColumn\('number', 'Bar'\);/, output, "Should Make Bar Column")
     assert_match(/data\.addColumn\('number', 'Foo'\);/, output, "Should Make Foo Column")
-    # assert_match(/data\.setValue\(0, 0, new Date\(4.days.ago.year, \(4.days.ago.month-1\), 4.days.ago.date\)\);/, output, "should put the first date in properly")
+    
+    date_string = "data.setValue(0, 0, new Date(#{4.days.ago.year}, #{4.days.ago.month-1}, #{4.days.ago.day}));"
+    assert_match(date_string, output, "should put the first date in properly")
+    
     assert_match(/data\.setValue\(0, 1, 7\);/, output, "should put right value for bar" )
     assert_match(/data\.setValue\(0, 2, 9\);/, output, "should put right value for foo")
+    
     assert_match(output, output2, "data should be sorted properly")
   end
 
