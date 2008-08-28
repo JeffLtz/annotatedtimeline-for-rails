@@ -17,15 +17,15 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 class AnnotatedTimelineTest < Test::Unit::TestCase
 
   def test_data_points_inserted
-    output  = annotated_timeline({Time.now =>{:foo=>7, :bar=>9}, 
+    output  = annotated_timeline({Time.now =>{:foo=>7}, 
                                   1.days.ago=>{:foo=>6, :bar=>10}, 
-                                  2.days.ago=>{:foo=>5, :bar=>4}, 
+                                  2.days.ago=>{:bar=>4}, 
                                   3.days.ago=>{:foo=>6, :bar=>2}, 
                                   4.days.ago=>{:foo=>9, :bar=>7}})
 
     output2 = annotated_timeline({3.days.ago=>{:foo=>6, :bar=>2}, 
-                                  Time.now =>{:bar=>9, :foo=>7}, 
-                                  2.days.ago=>{:bar=>4, :foo=>5}, 
+                                  Time.now =>{:foo=>7}, 
+                                  2.days.ago=>{:bar=>4}, 
                                   1.days.ago=>{:foo=>6, :bar=>10}, 
                                   4.days.ago=>{:bar=>7, :foo=>9}})
 
