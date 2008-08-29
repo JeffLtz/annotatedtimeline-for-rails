@@ -2,7 +2,7 @@ AnnotatedTimeline
 =================
 
 In the view:
-	<%= annotated_timeline(daily_counts_by_type, 'div-name', options) %>
+	<%= annotated_timeline(daily_counts_by_type, width, height, 'div-name', options) %>
 
 daily_counts_by_type should look like:
 	{Datetime1 => { :foo=>123, :bar=>100}, Datetime2 => { :foo=>736, :bar=>423}, Datetime3 => { :foo=>412, :bar=>678 } }
