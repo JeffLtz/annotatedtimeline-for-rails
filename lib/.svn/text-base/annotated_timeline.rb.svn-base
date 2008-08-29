@@ -1,6 +1,6 @@
 module AnnotatedTimeline 
 
-  def annotated_timeline(daily_counts_by_type, element = 'graph', options = {})
+  def annotated_timeline(daily_counts_by_type, width = 750, height = 300, element = 'graph', options = {})
   
       html = "<script type=\"text/javascript\" src=\"http://www.google.com/jsapi\"></script>\n<script type=\"text/javascript\"> \n"
       html += "google.load(\"visualization\", \"1\", {packages:[\"annotatedtimeline\"]}); \n"  
@@ -26,7 +26,7 @@ module AnnotatedTimeline
 		
   		html += "); } \n"		
   		html += "</script>"
-  		html +=	"<div id=\"#{element}\" class=\"google_graph\"></div>"
+  		html +=	"<div id=\"#{element}\" style=\"width: #{width}px\; height: #{height}px\;\"></div>"
   
   end
 

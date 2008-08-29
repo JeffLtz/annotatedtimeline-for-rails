@@ -43,7 +43,7 @@ class AnnotatedTimelineTest < Test::Unit::TestCase
   end
   
   def test_options_passed
-    output = annotated_timeline({Time.now =>{:foo=>7, :bar=>9}, 1.days.ago=>{:foo=>6, :bar=>10}, 2.days.ago=>{:foo=>5, :bar=>4}}, 'graph',
+    output = annotated_timeline({Time.now =>{:foo=>7, :bar=>9}, 1.days.ago=>{:foo=>6, :bar=>10}, 2.days.ago=>{:foo=>5, :bar=>4}}, 300, 200, 'graph',
                                 {:displayExactValues  =>  true, 
                                   :min                =>  5, 
                                   :scaleType          =>  'maximize',
@@ -58,6 +58,8 @@ class AnnotatedTimelineTest < Test::Unit::TestCase
     
     date_string = "zoomStartTime: new Date(#{4.days.ago.year}, #{4.days.ago.month-1}, #{4.days.ago.day})"
     assert_match(date_string, output, "should pass zoom option")
+  
+    assert_match("<div id=\"graph\" style=\"width: 300px\; height: 200px\;\"></div>", output)
   end
   
 end
